@@ -13,7 +13,6 @@ namespace tabuleiro
 
         }
 
-
         public override string ToString(){
             return "{" + "linha: " + this.linha + ", coluna: " + this.coluna + "}";
         }
