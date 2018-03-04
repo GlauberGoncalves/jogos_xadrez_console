@@ -9,24 +9,25 @@ namespace xadrez
         static void Main(string[] args){
             Posicao P;
 
-            try { 
-                Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 
-                tabuleiro.colocarPeca( new Torre(tabuleiro, Cor.Preta), new Posicao(7, 0));                
-                tabuleiro.colocarPeca( new Rei(tabuleiro, Cor.Preta), new Posicao(7, 3));                
-                // teste posição dublicada
-                // tabuleiro.colocarPeca( new Torre( tabuleiro , Cor.Preta ) , new Posicao( 5 , 6 ) );
-                
-                // teste posição invalida
-                // tabuleiro.colocarPeca( new Torre( tabuleiro , Cor.Preta ) , new Posicao( 9 , 9 ) );
+            // Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 
-                Tela.imprimeTabuleiro(tabuleiro);
+            // tabuleiro.colocarPeca( new Torre(tabuleiro, Cor.Preta), new Posicao(7, 0));                
+            // tabuleiro.colocarPeca( new Rei(tabuleiro, Cor.Preta), new Posicao(7, 3));                
+            // teste posição dublicada
+            // tabuleiro.colocarPeca( new Torre( tabuleiro , Cor.Preta ) , new Posicao( 5 , 6 ) );
 
-            } catch( TabuleiroException e) {
+            // teste posição invalida
+            // tabuleiro.colocarPeca( new Torre( tabuleiro , Cor.Preta ) , new Posicao( 9 , 9 ) );
+            // Tela.imprimeTabuleiro(tabuleiro);
 
-                Console.WriteLine( e.Message );
+            PosicaoXadrez posicao = new PosicaoXadrez( 'h' , 3 );
 
-            }
+            
+            Console.WriteLine( posicao );
+            Console.WriteLine( posicao.toPosicao() );
+
+
             Console.ReadLine();
         }
     }
