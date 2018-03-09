@@ -33,6 +33,19 @@ namespace tabuleiro
             this.pecas[posicao.linha, posicao.coluna] = peca;            
         }
 
+        public Peca retirarPeca(Posicao posicao) {
+
+            if (this.peca( posicao ) == null)
+                return null;
+
+            Peca aux = this.peca( posicao );
+            aux.posicao = null;
+
+            this.pecas[posicao.linha , posicao.coluna] = null;
+            return aux;
+                        
+        }
+
         public bool exitePeca(Posicao posicao) {
 
             validarPosicao( posicao );
@@ -53,6 +66,8 @@ namespace tabuleiro
                 throw new TabuleiroException( "Posição invalida" );
             }
         }
+
+
 
     }
 }

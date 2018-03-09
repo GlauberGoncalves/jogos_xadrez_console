@@ -9,14 +9,24 @@ namespace xadrez
         static void Main(string[] args){
             Posicao P;
 
+            PartidaDeXadrez partida = new PartidaDeXadrez();
 
-            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+            while( partida.statusPartida != true ) {
 
-            tabuleiro.colocarPeca( new Torre(tabuleiro, Cor.Preta), new Posicao(7, 0));
-            tabuleiro.colocarPeca( new Rei( tabuleiro , Cor.Branca ) , new Posicao( 7 , 3 ) );
-            tabuleiro.colocarPeca( new Torre( tabuleiro , Cor.Preta ) , new Posicao( 7 , 7 ) );
+                Console.Clear();
+                Tela.imprimeTabuleiro( partida.tab );
+
+
+                Posicao origem  = Tela.lerPosicaoXadrez().toPosicao();
+                Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                partida.executaMovimento( origem , destino );
+
+            }
 
             
+
+
             // teste posição dublicada
             // tabuleiro.colocarPeca( new Torre( tabuleiro , Cor.Preta ) , new Posicao( 5 , 6 ) );
 
@@ -26,8 +36,8 @@ namespace xadrez
 
             // PosicaoXadrez posicao = new PosicaoXadrez( 'h' , 3 );
 
-            
-            Tela.imprimeTabuleiro( tabuleiro );
+
+            // Tela.imprimeTabuleiro( tabuleiro );
             
 
 
