@@ -7,26 +7,33 @@ namespace xadrez
     class Program
     {
         static void Main(string[] args){
-            Posicao P;
-
             PartidaDeXadrez partida = new PartidaDeXadrez();
 
-            while( partida.statusPartida != true ) {
+            while( partida.terminada != true ) {
 
                 Console.Clear();
                 Tela.imprimeTabuleiro( partida.tab );
 
 
                 Posicao origem  = Tela.lerPosicaoXadrez().toPosicao();
+                Console.Clear();
+
+                bool[,] posicoesPossiveis = partida.tab.peca( origem ).movimentosPossiveis();
+
+                Tela.imprimeTabuleiro( partida.tab , posicoesPossiveis );
+
                 Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
 
-                partida.executaMovimento( origem , destino );
+                if( posicoesPossiveis[ destino.linha, destino.coluna ]) {
+                    partida.executaMovimento( origem , destino );
+                } else {
+                    Console.Write( "Jogada Invalida!!!" );
+                }
+
+                
 
             }
-
             
-
-
             // teste posição dublicada
             // tabuleiro.colocarPeca( new Torre( tabuleiro , Cor.Preta ) , new Posicao( 5 , 6 ) );
 

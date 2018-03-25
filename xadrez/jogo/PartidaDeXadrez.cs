@@ -8,12 +8,13 @@ namespace jogo
         public Tabuleiro tab { get; private set; }
         private int turno;
         private Cor jogadaAtual;
-        public bool statusPartida { get; private set; }
+        public bool terminada { get; private set; }
 
         public PartidaDeXadrez() {
             this.tab = new Tabuleiro( 8 , 8 );
             this.turno = 1;
             this.jogadaAtual = Cor.Branca;
+            this.terminada = false;
             this.colocarPecas();
         }
 
